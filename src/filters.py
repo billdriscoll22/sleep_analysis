@@ -3,14 +3,38 @@ from typing import Any
 
 
 def is_int(val: Any) -> bool:
+    """
+    Ascertain whether or not a given value is an integer
+
+    :param val: Value to be tested
+
+    :return bool: Whether or not the value is an integer
+    """
+
     return isinstance(val, int)
 
 
 def is_float(val: Any) -> bool:
+    """
+    Ascertain whether or not a given value is a float
+
+    :param val: Value to be tested
+
+    :return float: Whether or not the value is a float
+    """
+
     return isinstance(val, float)
 
 
 def is_not_nan(val: Any) -> bool:
+    """
+    Ascertain whether a given value is 'not nan'
+
+    :param val: Value to be tested
+
+    :return float: Whether or not the value is 'not nan'
+    """
+
     return (not isnan(val))
 
 

@@ -2,6 +2,14 @@ from math import isnan
 
 
 def clock_to_minutes(clock: str) -> float:
+    """
+    Convert a clock string to a float representing its value in minutes
+
+    :param clock: Clock string to be converted, in the format HH:MM
+
+    :return float: Clock time represented in minutes from 0:00
+    """
+
     try:
         hours_raw, minutes_raw = clock.split(':')
 
@@ -9,11 +17,20 @@ def clock_to_minutes(clock: str) -> float:
         minutes = float(minutes_raw)
 
         return (hours * 60 + minutes) / 60
+
     except Exception:
         return float('nan')
 
 
 def presence_of_value(val: str) -> float:
+    """
+    Represent presence/lack-thereof of value as float
+
+    :param val: Value to be checked
+
+    :return float: 0.0 if value is nan; 1.0 otherwise
+    """
+
     if (isinstance(val, str)):
         return 1.0
 
@@ -24,6 +41,14 @@ def presence_of_value(val: str) -> float:
 
 
 def weather_to_is_sunny(val: str) -> float:
+    """
+    Convert description of weather to float defining whether or not 'sunny' accurately represents the weather
+
+    :param val: Weather value to be checked. 'mostly sunny' or 'rainy,' for example
+
+    :return float: nan if valueless; 0.0 if not sunny; 1.0 if sunny
+    """
+
     if val in ['Sunny', 'sunny', 'Mostly Sunny', 'Mostly sunny', 'mostly Sunny']:
         return 1.0
 
@@ -40,6 +65,14 @@ def weather_to_is_sunny(val: str) -> float:
 
 
 def y_n_to_1_0(val: str) -> float:
+    """
+    Convert words representing affirmative or anti-affirmative to float
+
+    :param val: Affirmative or anti-affirmative value to be checked. 'Yes' or 'n,' e.g.
+
+    :return float: 1.0 if yes; 0.0 if no; nan if neither
+    """
+
     if val in ['Y', 'Yes', 'yes', 'y']:
         return 1.0
 
@@ -57,6 +90,13 @@ def y_n_to_1_0(val: str) -> float:
 
 
 def range_to_float(val: str) -> float:
+    """
+    Convert words representing affirmative or anti-affirmative to float
+
+    :param val: Affirmative or anti-affirmative value to be checked. 'Yes' or 'n,' e.g.
+
+    :return float: 1.0 if yes; 0.0 if no; nan if neither
+    """
     if isinstance(val, float):
         if isnan(val):
             return val
